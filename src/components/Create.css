@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  margin-top: 5%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: aqua;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: aqua;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
