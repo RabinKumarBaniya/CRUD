@@ -15,6 +15,13 @@ const Read = () => {
             });
     }
 
+    function handleDelete(id) {
+        axios.delete(`https://6451df30a2860c9ed4fc94ad.mockapi.io/crud/${id}`
+        ).then(() => {
+            getData();
+        })
+    }
+
 
     useEffect(() => {
         getData();
@@ -49,7 +56,7 @@ const Read = () => {
                                             <button>Edit</button>
                                         </td>
                                         <td>
-                                            <button>Delete</button>
+                                            <button onClick={() => handleDelete(eachData.id)}>Delete</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -58,7 +65,11 @@ const Read = () => {
 
                     }
                 </table>
+                <button style={{ marginTop: '10px' }}>Create Form</button>
+
             </div>
+
+
         </>
     );
 };
