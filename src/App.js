@@ -7,9 +7,9 @@ import Update from './components/Update';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename='/CRUD'>
         <Routes>
-          <Route exact path='/' element={<Create />}> </Route>
+          <Route exact path='/CRUD' element={<Create />}> </Route>
           <Route exact path='/read' element={<Read />}> </Route>
           <Route exact path='/update' element={<Update />}> </Route>
         </Routes>
