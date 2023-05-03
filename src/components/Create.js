@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Create.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Create = () => {
@@ -50,7 +51,9 @@ const Create = () => {
 
             <div className="button-row">
                 <button type="submit" onClick={handleSubmit}>Submit</button>
-                <button type="button">MainPage</button>
+                <Link to="/read">
+                    <button type="button">MainPage</button>
+                </Link>
             </div>
         </form>
 

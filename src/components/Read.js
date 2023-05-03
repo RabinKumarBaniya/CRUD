@@ -2,6 +2,7 @@ import React from 'react';
 import './Read.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Read = () => {
 
@@ -15,11 +16,17 @@ const Read = () => {
             });
     }
 
-    function handleDelete(id) {
+    const handleDelete = (id) => {
         axios.delete(`https://6451df30a2860c9ed4fc94ad.mockapi.io/crud/${id}`
         ).then(() => {
             getData();
         })
+    }
+
+    const setToLocalStorage = (id, name, email) => {
+        localStorage.setItem("id", id);
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
     }
 
 
@@ -53,7 +60,10 @@ const Read = () => {
                                         <td>{eachData.name}</td>
                                         <td>{eachData.email}</td>
                                         <td>
-                                            <button>Edit</button>
+                                            <Link to="/update">
+                                                <button onClick={() => setToLocalStorage(eachData.id, eachData.name, eachData.email)}>Edit</button>
+                                            </Link>
+
                                         </td>
                                         <td>
                                             <button onClick={() => handleDelete(eachData.id)}>Delete</button>
@@ -65,7 +75,9 @@ const Read = () => {
 
                     }
                 </table>
-                <button style={{ marginTop: '10px' }}>Create Form</button>
+                <Link to="/">
+                    <button style={{ marginTop: '10px' }}>Create Form</button>
+                </Link>
 
             </div>
 
