@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Read = () => {
 
     const [data, setdata] = useState([]);
@@ -38,8 +39,11 @@ const Read = () => {
     return (
         <>
             <div className='header'>
-                <h1>Read Form</h1>
+                <h1>Read Operation</h1>
+
             </div>
+
+
             <div className="container">
 
                 <table>
