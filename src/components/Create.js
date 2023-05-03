@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Create.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const history = useNavigate();
 
     const header = { "Access-Control-Allow-Origin": "*" };
 
@@ -18,32 +20,40 @@ const Create = () => {
                 name: name,
                 email: email,
                 header,
+            })
+
+            .then(() => {
+                history('/read');
             });
+
+
     };
+
+
     return (
 
-        <>
-            <form className='container'>
-                <div className='header'>
-                    <h1>Create Form</h1>
-                </div>
-                <label htmlFor='name'>
-                    Name:
-                    <input type='text' onChange={(e) => setName(e.target.value)} />
-                </label>
-                <label htmlFor='email'>
-                    Email:
-                    <input type='email' onChange={(e) => setEmail(e.target.value)} />
-                </label>
+
+        <form className='container'>
+            <div className='header'>
+                <h1>Create Form</h1>
+            </div>
+            <label htmlFor='name'>
+                Name:
+                <input type='text' onChange={(e) => setName(e.target.value)} />
+            </label>
+            <label htmlFor='email'>
+                Email:
+                <input type='email' onChange={(e) => setEmail(e.target.value)} />
+            </label>
 
 
 
-                <div className="button-row">
-                    <button type="submit" onClick={handleSubmit}>Submit</button>
-                    <button type="button">MainPage</button>
-                </div>
-            </form>
-        </>
+            <div className="button-row">
+                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button type="button">MainPage</button>
+            </div>
+        </form>
+
     );
 };
 
