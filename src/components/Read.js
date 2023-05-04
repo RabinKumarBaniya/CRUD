@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const Read = () => {
 
     const [data, setdata] = useState([]);
+    const [inputText, setInputText] = useState("");
 
     function getData() {
         axios.get('https://6451df30a2860c9ed4fc94ad.mockapi.io/crud')
@@ -36,11 +37,18 @@ const Read = () => {
     }, []);
 
 
+    const inputHandler = (e) => {
+        setInputText(e.target.value.toLowerCase());
+    }
+
+
     return (
         <>
             <div className='header'>
                 <h1>Read Operation</h1>
-
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                <input type="text" placeholder="Search" onChange={inputHandler} style={{ width: '25%' }} />
             </div>
 
 
@@ -56,7 +64,17 @@ const Read = () => {
                         </tr>
                     </thead>
                     {
-                        data.map((eachData) => {
+                        data.filter((el) => {
+                            if (el === '') {
+                                return el
+                            }
+                            else {
+                                return (
+                                    el.name.toLowerCase().includes(inputText) ||
+                                    el.email.toLowerCase().includes(inputText)
+                                )
+                            }
+                        }).map((eachData) => {
                             return (
                                 <tbody>
                                     <tr>
